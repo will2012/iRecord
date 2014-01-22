@@ -3,6 +3,7 @@ package com.birdv5.ir.utils.view;
 import android.app.Activity;
 import android.os.Handler;
 
+import com.birdv5.ir.ui.base.BaseActivity;
 import com.birdv5.ir.utils.common.Params;
 import com.birdv5.ir.utils.system.ActivityUtility;
 
@@ -12,7 +13,7 @@ import com.birdv5.ir.utils.system.ActivityUtility;
  * @date   : 2012-12-19
  * @desc   : 延时一定时间后，自动跳转到其它Activity
  */
-public abstract class DelaySwitchActivity extends Activity {
+public abstract class DelaySwitchActivity extends BaseActivity {
 
 	private Runnable switchCallback;
 	private Handler switchHandler;
@@ -67,7 +68,7 @@ public abstract class DelaySwitchActivity extends Activity {
 	}
 
 	@Override
-	final protected void onResume() {
+	public final void onResume() {
 		super.onResume();
 		cancelSwitchAction();
 		switchHandler.postDelayed(switchCallback, splashDelay);

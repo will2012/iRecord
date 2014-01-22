@@ -1,6 +1,9 @@
 package com.birdv5.ir.utils.system;
 
 
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
+import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
+
 import java.lang.reflect.Field;
 
 import android.app.Activity;
@@ -280,5 +283,21 @@ public final class ActivityUtility {
     public static int px2dip(Context context, float pxValue) {  
         final float scale = context.getResources().getDisplayMetrics().density;  
         return (int) (pxValue / scale + 0.5f);  
+    }
+    
+    /**
+     * Finish the given activity and start a home activity class.
+     * <p>
+     * This mirror the behavior of the home action bar button that clears the
+     * current activity and starts or brings another activity to the top.
+     *
+     * @param activity
+     * @param homeActivityClass
+     */
+    public static void goHome(Activity activity, Class<?> homeActivityClass) {
+      activity.finish();
+      Intent intent = new Intent(activity, homeActivityClass);
+      intent.addFlags(FLAG_ACTIVITY_CLEAR_TOP | FLAG_ACTIVITY_SINGLE_TOP);
+      activity.startActivity(intent);
     }
 }
