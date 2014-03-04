@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.birdv5.ir.ui.home;
+package com.birdv5.ir.ui.home.fragment;
 
 
 import android.os.Bundle;

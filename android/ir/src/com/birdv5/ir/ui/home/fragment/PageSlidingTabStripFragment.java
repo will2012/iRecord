@@ -1,4 +1,4 @@
-package com.birdv5.ir.ui.home;
+package com.birdv5.ir.ui.home.fragment;
 
 
 import android.os.Bundle;
@@ -53,8 +53,7 @@ public class PageSlidingTabStripFragment extends Fragment {
 			super(fm);
 		}
 
-		private final String[] TITLES = { "Categories", "Home", "Top Paid",
-				"Top Free" };
+		private final String[] TITLES = { "JAVA", "ANDROID","IOS","C", "LINUX"};
 
 		@Override
 		public CharSequence getPageTitle(int position) {
@@ -70,8 +69,6 @@ public class PageSlidingTabStripFragment extends Fragment {
 		public SherlockFragment getItem(int position) {
 			return SuperAwesomeCardFragment.newInstance(position);
 		}
-
 	}
-
-
+	
 }
