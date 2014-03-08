@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="AndroidLibrariesPullToRefreshLibraryUnspecified.aar" >
+        <source path="/Users/will/workspace/iRecord/android/ir/build/exploded-bundles/AndroidLibrariesPullToRefreshLibraryUnspecified.aar/assets" />
+    </dataSet>
+    <dataSet config="AndroidLibrariesPagerSlidingTabStripLibraryUnspecified.aar" >
+        <source path="/Users/will/workspace/iRecord/android/ir/build/exploded-bundles/AndroidLibrariesPagerSlidingTabStripLibraryUnspecified.aar/assets" />
+    </dataSet>
+    <dataSet config="AndroidLibrariesActionbarsherlockLibraryUnspecified.aar" >
+        <source path="/Users/will/workspace/iRecord/android/ir/build/exploded-bundles/AndroidLibrariesActionbarsherlockLibraryUnspecified.aar/assets" />
+    </dataSet>
+    <dataSet config="main" >
+        <source path="/Users/will/workspace/iRecord/android/ir/assets" >
+            <file
+                name="irDB.db"
+                path="/Users/will/workspace/iRecord/android/ir/assets/irDB.db" />
+        </source>
+    </dataSet>
+    <dataSet config="c20" >
+        <source path="/Users/will/workspace/iRecord/android/ir/src/c20/assets" />
+    </dataSet>
+    <dataSet config="release" >
+        <source path="/Users/will/workspace/iRecord/android/ir/src/release/assets" />
+    </dataSet>
+    <dataSet config="c20Release" >
+        <source path="/Users/will/workspace/iRecord/android/ir/src/c20Release/assets" />
+    </dataSet>
+
+</merger>

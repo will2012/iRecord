@@ -1,0 +1,128 @@
+buildscript {
+    repositories {
+       //从中央库里面获取依赖
+        mavenCentral()
+    }
+    dependencies {
+       classpath 'com.android.tools.build:gradle:0.8.0'
+    }
+}
+apply plugin: 'android'
+
+dependencies {
+   compile fileTree(dir: 'libs', include: '*.jar')
+}
+
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.0"
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+        
+       //渠道
+	    productFlavors 
+	    {
+			c20 {}
+	    }
+        
+         dependencies 
+         {
+                compile project(':libraries:actionbarsherlockLibrary')
+                compile project(':libraries:PagerSlidingTabStripLibrary')
+                compile project(':libraries:PullToRefreshLibrary')
+        }
+        
+        packagingOptions {
+             exclude 'META-INF/LICENSE'
+             exclude 'META-INF/DEPENDENCIES'
+             exclude 'META-INF/NOTICE'
+             exclude 'META-INF/LICENSE.txt'
+             exclude 'META-INF/DEPENDENCIES.txt'
+             exclude 'META-INF/NOTICE.txt'
+        }
+    }
+    
+    
+    signingConfigs {
+    	release{
+    		storeFile file("ir.keystore")
+    		storePassword "sww382300788"
+    		keyAlias "ir.keystore"
+    		keyPassword "sww382300788"
+    	}
+    }
+    
+     buildTypes{
+    	release {
+    		signingConfig  signingConfigs.release
+    		zipAlign true
+    		//runProguard true 
+            //proguardFile getDefaultProguardFile('proguard-android-optimize.txt') 
+            //proguardFile 'proguard.cfg' 
+    	}
+    }
+    
+
+	
+	//替换AndroidManifest.xml的UMENG_CHANNEL_VALUE字符串为渠道名称
+	android.applicationVariants.all
+	{ variant -> 
+	       
+
+	    variant.processManifest.doLast
+	    {
+	    
+	        def flavorname=variant.productFlavors[0].name
+	        //println "flavorname ${flavorname}"
+	        
+	        def flavornameSize=flavorname.size()
+	        //println "flavornameSize ${flavornameSize}"
+	        
+	        //def channel=flavorname[1..flavornameSize-1];
+	        //println "channel ${channel}"
+	        
+	        copy{
+	        
+	            from("${buildDir}/manifests"){
+	                include "${variant.dirName}/AndroidManifest.xml"
+	            }
+	            
+	            into("${buildDir}/manifests/$variant.name")
+	
+	            filter{
+	                String line -> line.replaceAll("UMENG_CHANNEL_VALUE", flavorname)
+	            }
+	
+	            variant.processResources.manifestFile = file("${buildDir}/manifests/${variant.name}/${variant.dirName}/AndroidManifest.xml")
+	        }    
+	   }
+	}
+}
+  
+  
+  
+task copyNativeLibs(type: Copy) {
+	from(new File('libs')) { include '**/*.so' }
+    into new File(buildDir, 'native-libs')
+}
+ 
+tasks.withType(Compile) { compileTask -> compileTask.dependsOn copyNativeLibs}
+ 
+clean.dependsOn 'cleanCopyNativeLibs'
+
+tasks.withType(com.android.build.gradle.tasks.PackageApplication) { pkgTask ->
+    //pkgTask.jniDir new File(buildDir, 'native-libs')
+    
+    pkgTask.jniFolders = new HashSet<File>()
+    pkgTask.jniFolders.add(new File(buildDir, 'native-libs'))
+}

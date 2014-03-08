@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.umeng.analytics.MobclickAgent;
 
@@ -80,6 +81,14 @@ public class BaseActivity extends Activity {
 	 */
 	protected String[] getStringArrayExtra(final String name) {
 		return getIntent().getStringArrayExtra(name);
+	}
+	
+	protected void toast(int msg,int duration){
+		Toast.makeText(this, msg, duration).show();
+	}
+	
+	protected void toast(int msg){
+		toast(msg,Toast.LENGTH_LONG);
 	}
 
 	

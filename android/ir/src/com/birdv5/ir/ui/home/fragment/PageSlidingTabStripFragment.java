@@ -52,8 +52,7 @@ public class PageSlidingTabStripFragment extends Fragment {
 		public MyPagerAdapter(android.support.v4.app.FragmentManager fm) {
 			super(fm);
 		}
-
-		private final String[] TITLES = { "JAVA", "ANDROID","IOS","C", "LINUX"};
+		private final String[] TITLES  = getResources().getStringArray(R.array.category_array);
 
 		@Override
 		public CharSequence getPageTitle(int position) {
@@ -67,7 +66,7 @@ public class PageSlidingTabStripFragment extends Fragment {
 
 		@Override
 		public SherlockFragment getItem(int position) {
-			return SuperAwesomeCardFragment.newInstance(position);
+			return SuperAwesomeFragment.newInstance(position);
 		}
 	}
 	

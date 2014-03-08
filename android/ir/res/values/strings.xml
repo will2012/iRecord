@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   Copyright 2011 The Android Open Source Project
 
@@ -12,26 +13,35 @@
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
   limitations under the License.
-  -->
+-->
 
 <resources>
-    <string name="app_name">Android资讯</string>
-    <string name="alternate_title">An alternate title that is long</string>
-    <string name="toggle_title">Toggle title</string>
-    <string name="action_contact">Contact</string>
 
-    <string name="menu_refresh">Refresh</string>
-    <string name="menu_search">Search</string>
-    <string name="menu_share">Share</string>
-    
-     <string name="drawer_open">Open navigation drawer</string>
+    <string name="app_name">IT面试题</string>
+    <string name="action_contact">Contact</string>
+    <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-    
+
     <string-array name="category_array">
-        <item>JAVA</item>
         <item>ANDROID</item>
-        <item>IOS</item>
         <item>C</item>
+        <item>IOS</item>
+        <item>JAVA</item>
         <item>LINUX</item>
+        <item>PYTHON</item>
+        <item>UNIX</item>
     </string-array>
+    <string-array name="menu_array">
+        <item>首页</item>
+        <item>反馈</item>
+    </string-array>
+
+    <string name="publisher_id">56OJw7b4uNLhh3COhB</string>
+    <string name="splash_ppid">16TLucrlApfjPNUfe_yG3oXz</string>
+
+    <!-- globle -->
+
+
+    <!-- splash -->
+
 </resources>

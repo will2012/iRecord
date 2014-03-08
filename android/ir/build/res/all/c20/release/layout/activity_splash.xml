@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="@drawable/ic_splash" android:id="@+id/splash_holder">
+
+</RelativeLayout><!-- From: file:/Users/will/workspace/iRecord/android/ir/res/layout/activity_splash.xml -->

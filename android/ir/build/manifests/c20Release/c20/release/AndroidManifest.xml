@@ -1,0 +1,49 @@
+<!-- From: file:/Users/will/workspace/iRecord/android/ir/AndroidManifest.xml --><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.birdv5.ir">
+
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="18"/>
+
+    <!-- uses-permission -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+    <application android:allowBackup="false" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="com.birdv5.ir.IRecordApp" android:theme="@style/Theme.Sherlock.Light">
+        <activity android:label="@string/app_name" android:name="com.birdv5.ir.ui.SplashActivity" android:theme="@android:style/Theme.Light.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.birdv5.ir.ui.home.HomeActivity">
+        </activity>
+
+      
+       <service android:name="com.umeng.common.net.DownloadingService" android:process=":DownloadingService">
+		</service>
+		<activity android:name="com.umeng.update.UpdateDialogActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+		</activity>
+		<activity android:name="com.umeng.fb.ConversationActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.umeng.fb.ContactActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <activity android:name="com.birdv5.ir.ui.DetailActivity">
+        </activity>
+        <activity android:name="cn.domob.download.OActivity"/>
+  
+        
+        <!-- Caution! Do not change this app key. It is only for demo usage. -->
+        <meta-data android:name="UMENG_APPKEY" android:value="52dde00b56240b45df0785bb">
+        </meta-data>
+        <meta-data android:name="UMENG_CHANNEL" android:value="appstore">
+        </meta-data>
+        
+    </application>
+    
+
+</manifest>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   Copyright 2011 The Android Open Source Project
 
@@ -21,5 +22,7 @@
     <dimen name="actionbar_compat_button_home_width">56dp</dimen>
     <dimen name="action_button_min_width">56dp</dimen>
     <dimen name="indeterminate_progress_size">32dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
 
 </resources>

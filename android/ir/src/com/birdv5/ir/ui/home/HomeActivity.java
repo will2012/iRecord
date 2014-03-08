@@ -1,6 +1,5 @@
 package com.birdv5.ir.ui.home;
 
-
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -11,13 +10,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.actionbarsherlock.app.SherlockFragment;
 import com.birdv5.ir.R;
 import com.birdv5.ir.ui.base.BaseFragmentActivity;
 import com.birdv5.ir.ui.home.fragment.PageSlidingTabStripFragment;
+import com.umeng.fb.FeedbackAgent;
 
-
-public class HomeActivity extends BaseFragmentActivity{
+public class HomeActivity extends BaseFragmentActivity {
 	DrawerLayout mDrawerLayout;
 	ListView mDrawerList;
 	ActionBarDrawerToggle mDrawerToggle;
@@ -25,21 +23,24 @@ public class HomeActivity extends BaseFragmentActivity{
 	private CharSequence mDrawerTitle;
 	private CharSequence mTitle;
 	private String[] mCategoryTitles;
-	
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		mTitle = mDrawerTitle = getTitle();
-		mCategoryTitles = getResources().getStringArray(R.array.category_array);
+		mCategoryTitles = getResources().getStringArray(R.array.menu_array);
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
 		// set a custom shadow that overlays the main content when the drawer
 		// opens
-		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,GravityCompat.START);
+		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
+				GravityCompat.START);
 		// set up the drawer's list view with items and click listener
-		mDrawerList.setAdapter(new ArrayAdapter<String>(this,R.layout.drawer_list_item, mCategoryTitles));
+		mDrawerList.setAdapter(new ArrayAdapter<String>(this,
+				R.layout.drawer_list_item, mCategoryTitles));
 		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
 		// enable ActionBar app icon to behave as action to toggle nav drawer
@@ -53,17 +54,17 @@ public class HomeActivity extends BaseFragmentActivity{
 		R.drawable.ic_drawer, /* nav drawer image to replace 'Up' caret */
 		R.string.drawer_open, /* "open drawer" description for accessibility */
 		R.string.drawer_close /* "close drawer" description for accessibility */
-		) {
+		)
+
+		{
+			@Override
 			public void onDrawerClosed(View view) {
 				getSupportActionBar().setTitle(mTitle);
-//				invalidateOptionsMenu(); // creates call to
-											// onPrepareOptionsMenu()
 			}
 
+			@Override
 			public void onDrawerOpened(View drawerView) {
 				getSupportActionBar().setTitle(mDrawerTitle);
-//				invalidateOptionsMenu(); // creates call to
-											// onPrepareOptionsMenu()
 			}
 		};
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
@@ -85,14 +86,14 @@ public class HomeActivity extends BaseFragmentActivity{
 
 		switch (item.getItemId()) {
 
-			case android.R.id.home: {
-				if (mDrawerLayout.isDrawerOpen(mDrawerList)) {
-					mDrawerLayout.closeDrawer(mDrawerList);
-				} else {
-					mDrawerLayout.openDrawer(mDrawerList);
-				}
-				break;
+		case android.R.id.home: {
+			if (mDrawerLayout.isDrawerOpen(mDrawerList)) {
+				mDrawerLayout.closeDrawer(mDrawerList);
+			} else {
+				mDrawerLayout.openDrawer(mDrawerList);
 			}
+			break;
+		}
 		}
 
 		return super.onOptionsItemSelected(item);
@@ -102,11 +103,11 @@ public class HomeActivity extends BaseFragmentActivity{
 	private class DrawerItemClickListener implements
 			ListView.OnItemClickListener {
 		@Override
-		public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
 			selectItem(position);
 		}
 	}
-	
 
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
@@ -118,23 +119,29 @@ public class HomeActivity extends BaseFragmentActivity{
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
-		// Pass any configuration change to the drawer toggles
 		mDrawerToggle.onConfigurationChanged(newConfig);
 	}
 
 	private void selectItem(int position) {
 
 		switch (position) {
-			case 0:
-				getSupportFragmentManager()
-						.beginTransaction()
-						.add(R.id.content,
-								PageSlidingTabStripFragment.newInstance(),
-								PageSlidingTabStripFragment.TAG).commit();
-				break;
+		case 0:
+			getSupportFragmentManager()
+					.beginTransaction()
+					.replace(R.id.content,
+							PageSlidingTabStripFragment.newInstance(),
+							PageSlidingTabStripFragment.TAG).commit();
+			break;
+		case 1:
+			FeedbackAgent agent = new FeedbackAgent(HomeActivity.this);
+			agent.sync();
+			agent.startFeedbackActivity();
+			break;
 		}
 
 		mDrawerLayout.closeDrawer(mDrawerList);
 	}
+	
+	
 
 }

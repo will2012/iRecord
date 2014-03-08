@@ -1,0 +1,4 @@
+include ':ir'
+include ':libraries:actionbarsherlockLibrary'
+include ':libraries:PagerSlidingTabStripLibrary'
+include ':libraries:PullToRefreshLibrary'

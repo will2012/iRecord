@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/Users/will/workspace/iRecord/android/libraries/PagerSlidingTabStripLibrary/res" >
+            <file
+                name="background_tab"
+                path="/Users/will/workspace/iRecord/android/libraries/PagerSlidingTabStripLibrary/res/drawable/background_tab.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                path="/Users/will/workspace/iRecord/android/libraries/PagerSlidingTabStripLibrary/res/values/attrs.xml"
+                qualifiers="" >
+                <declare-styleable name="PagerSlidingTabStrip" >
+                    <attr
+                        name="pstsIndicatorColor"
+                        format="color" />
+                    <attr
+                        name="pstsUnderlineColor"
+                        format="color" />
+                    <attr
+                        name="pstsDividerColor"
+                        format="color" />
+                    <attr
+                        name="pstsIndicatorHeight"
+                        format="dimension" />
+                    <attr
+                        name="pstsUnderlineHeight"
+                        format="dimension" />
+                    <attr
+                        name="pstsDividerPadding"
+                        format="dimension" />
+                    <attr
+                        name="pstsTabPaddingLeftRight"
+                        format="dimension" />
+                    <attr
+                        name="pstsScrollOffset"
+                        format="dimension" />
+                    <attr
+                        name="pstsTabBackground"
+                        format="reference" />
+                    <attr
+                        name="pstsShouldExpand"
+                        format="boolean" />
+                    <attr
+                        name="pstsTextAllCaps"
+                        format="boolean" />
+                </declare-styleable>
+            </file>
+            <file
+                path="/Users/will/workspace/iRecord/android/libraries/PagerSlidingTabStripLibrary/res/values/colors.xml"
+                qualifiers="" >
+                <color name="background_tab_pressed" >#6633B5E5
+                </color>
+            </file>
+            <file
+                path="/Users/will/workspace/iRecord/android/libraries/PagerSlidingTabStripLibrary/res/values/strings.xml"
+                qualifiers="" >
+                <string name="app_name" >PagerSlidingTabStripLibrary
+                </string>
+            </file>
+            <file
+                path="/Users/will/workspace/iRecord/android/libraries/PagerSlidingTabStripLibrary/res/values/styles.xml"
+                qualifiers="" >
+
+                <style
+                    name="AppBaseTheme"
+                    parent="android:Theme.Light" >
+
+                    <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+                    -->
+                </style>
+
+                <style
+                    name="AppTheme"
+                    parent="AppBaseTheme" >
+
+                    <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+                </style>
+            </file>
+            <file
+                path="/Users/will/workspace/iRecord/android/libraries/PagerSlidingTabStripLibrary/res/values-v11/styles.xml"
+                qualifiers="v11" >
+
+                <style
+                    name="AppBaseTheme"
+                    parent="android:Theme.Holo.Light" >
+
+                    <!-- API 11 theme customizations can go here. -->
+                </style>
+            </file>
+            <file
+                path="/Users/will/workspace/iRecord/android/libraries/PagerSlidingTabStripLibrary/res/values-v14/styles.xml"
+                qualifiers="v14" >
+
+                <style
+                    name="AppBaseTheme"
+                    parent="android:Theme.Holo.Light.DarkActionBar" >
+
+                    <!-- API 14 theme customizations can go here. -->
+                </style>
+            </file>
+        </source>
+        <source path="/Users/will/workspace/iRecord/android/libraries/PagerSlidingTabStripLibrary/build/res/rs/release" />
+    </dataSet>
+    <dataSet config="release" >
+        <source path="/Users/will/workspace/iRecord/android/libraries/PagerSlidingTabStripLibrary/build-types/release/res" />
+    </dataSet>
+
+</merger>

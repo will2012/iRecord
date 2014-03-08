@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.birdv5.ir"
     android:versionCode="1"
@@ -19,25 +20,44 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
-        android:name=".IRecordApp"
+        android:name="com.birdv5.ir.IRecordApp"
         android:allowBackup="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.Sherlock.Light" >
         <activity
-            android:name=".ui.SplashActivity"
+            android:name="com.birdv5.ir.ui.SplashActivity"
             android:label="@string/app_name"
-              android:theme="@android:style/Theme.Light.NoTitleBar"  >
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-         <activity
-            android:name="com.birdv5.ir.ui.home.HomeActivity" ></activity>
+        <activity android:name="com.birdv5.ir.ui.home.HomeActivity" >
+        </activity>
 
+      
+       <service
+		    android:name="com.umeng.common.net.DownloadingService"
+		    android:process=":DownloadingService" >
+		</service>
+		<activity 
+		    android:name="com.umeng.update.UpdateDialogActivity"
+		    android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+		</activity>
+		<activity android:name="com.umeng.fb.ConversationActivity"
+		    android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.umeng.fb.ContactActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <activity
+            android:name="com.birdv5.ir.ui.DetailActivity" >
+        </activity>
+        <activity android:name="cn.domob.download.OActivity"/>
+  
+        
         <!-- Caution! Do not change this app key. It is only for demo usage. -->
         <meta-data
             android:name="UMENG_APPKEY"
@@ -47,11 +67,8 @@
             android:name="UMENG_CHANNEL"
             android:value="appstore" >
         </meta-data>
-
-        <service
-            android:name="com.umeng.common.net.DownloadingService"
-            android:process=":DownloadingService" >
-        </service>
+        
     </application>
+    
 
 </manifest>
